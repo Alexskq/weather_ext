@@ -3,16 +3,29 @@
 </h1>
 
 
-<div class="flex justify-center">
-    <form class="w-full max-w-sm">
+<div class="flex justify-center" data-controller="location" data-location-key=<%= ENV["WEATHER_KEY"] %>>
+    <form class="w-full max-w-sm"  data-action="submit->location#search" >
         <div class="flex items-center border-b border-teal-500 py-2">
             <input
                 class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-                type="text" placeholder="Enter your city" aria-label="City">
+                type="text" placeholder="Enter your city" aria-label="City" data-location-target="input">
             <button
                 class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
-                type="button">
+                type="submit">
                 Search
             </button>
         </div>
     </form>
+    <div class="flex justify-center mt-4">
+        <div class="w-1/2" data-location-target="weather">
+            <div class="flex justify-center">
+                <div class="flex flex-col items-center">
+                    <h2 class="text-2xl font-bold" data-location-target="city"></h2>
+                    <p class="text-lg" data-location-target="description"></p>
+                    <p class="text-lg" data-location-target="temperature"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%# TODO: display information %>
