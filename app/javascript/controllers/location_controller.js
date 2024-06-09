@@ -75,12 +75,14 @@ export default class extends Controller {
     const skyTranscription = (description) => {
       switch (description) {
         case "Clear sky":
+          // document.body.style.background =
+          //   'url("https://images.unsplash.com/photo-1541119638723-c51cbe2262aa?q=80&w=2673&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")';
           spotify("sunny");
           return " 🌤️ Ciel dégagé";
         case "Few clouds":
           spotify("clouds");
           return "⛅️ Quelques nuages";
-        case "Scattered clouds":
+        case "Overcast clouds":
           spotify("clouds");
           return "☁️ Nuages épars";
         case "Broken clouds":
@@ -99,7 +101,7 @@ export default class extends Controller {
           spotify("mist");
           return "💨 Brouillard";
         default:
-          return city.weather[0].description;
+          return `${description}`;
       }
     };
 
