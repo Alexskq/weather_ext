@@ -11,14 +11,9 @@ export default class extends Controller {
     "sunset",
     "wind",
   ];
-  connect() {
-    // console.log("Hello, Stimulus!");
-    // console.log(this.inputTarget);
-    // console.log(this.cityTarget);
-    // console.log(this.descriptionTarget);
-    // console.log(this.temperatureTarget);
-    // console.log(this.element.dataset.locationKey);
-  }
+  // connect() {
+  //   console.log("Connected!");
+  // }
 
   search(event) {
     event.preventDefault();
@@ -29,23 +24,79 @@ export default class extends Controller {
       return string.charAt(0).toUpperCase() + string.slice(1);
     };
 
+    // Get playlist
+
+    const clientID = this.element.dataset.locationClient;
+    console.log(clientID);
+    const clientSecret = this.element.dataset.locationSecret;
+    console.log(clientSecret);
+    const tokenRequest = {
+      grant_type: "client_credentials",
+      client_id: `${clientID}`,
+      client_secret: `${clientSecret}`,
+    };
+    const searchParams = new URLSearchParams(tokenRequest);
+    console.log(searchParams.toString());
+
+    const spotify = (typeOfSky) => {
+      const url_token = "https://accounts.spotify.com/api/token";
+      fetch(url_token, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: searchParams.toString(),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          fetch(
+            `https://api.spotify.com/v1/search?query=${typeOfSky}&type=playlist`,
+            {
+              method: "GET",
+              headers: { Authorization: "Bearer " + data.access_token },
+            }
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+              window.onSpotifyIframeApiReady = (IFrameAPI) => {
+                const element = document.getElementById("embed-iframe");
+                const options = {
+                  uri: `${data.playlists.items["0"].uri}`,
+                };
+                const callback = (EmbedController) => {};
+                IFrameAPI.createController(element, options, callback);
+              };
+            });
+        });
+    };
+
     const skyTranscription = (description) => {
       switch (description) {
         case "Clear sky":
+          spotify("sunny");
           return " 🌤️ Ciel dégagé";
         case "Few clouds":
+          spotify("clouds");
           return "⛅️ Quelques nuages";
         case "Scattered clouds":
+          spotify("clouds");
           return "☁️ Nuages épars";
         case "Broken clouds":
+          spotify("clouds");
           return "🌦️ Nuageux";
         case "Rain":
+          spotify("rain");
           return "🌧️ Pluie";
         case "Thunderstorm":
+          spotify("thunderstorm");
           return "🌩️ Orage";
         case "Snow":
+          spotify("snow");
           return "❄️ Neige";
         case "Mist":
+          spotify("mist");
           return "💨 Brouillard";
         default:
           return city.weather[0].description;
@@ -98,5 +149,3 @@ export default class extends Controller {
       });
   }
 }
-
-// ! récupérer heure coucher du soleil et lever du soleil

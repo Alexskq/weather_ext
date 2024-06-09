@@ -1,9 +1,9 @@
-<h1 class="text-3xl font-bold underline text-center font-satoshi font-black">
+<h1 class="text-3xl underline text-center font-satoshi font-black">
     Weather APP
 </h1>
 
 
-<div class="mt-5 max-w-[fit-content] mx-auto " data-controller="location" data-location-key=<%= ENV["WEATHER_KEY"] %>>
+<div class="mt-5 max-w-[fit-content] mx-auto " data-controller="location" data-location-key=<%=ENV["WEATHER_KEY"]%> data-location-client=<%=ENV["SPOTIFY_CLIENT_ID"]%> data-location-secret= <%=ENV["SPOTIFY_CLIENT_SECRET"]%>>
     <form class="w-full max-w-sm"  data-action="submit->location#search" >
         <div class="flex items-center border-b border-teal-500 py-2">
             <input
@@ -30,8 +30,11 @@
             </div>
         </div>
     </div>
+    <div id="embed-iframe" ></div>
 </div>
 
 <%# ADD spotify %>
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+
 
 
