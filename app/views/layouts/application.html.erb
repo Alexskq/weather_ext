@@ -9,10 +9,13 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%# <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,501,700&display=swap" rel="stylesheet"> %>
+    <%= stylesheet_link_tag "https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,501,700,900&display=swap", "data-turbo-track": "reload" %>
+
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="container mx-auto mt-28 px-5">
       <%= yield %>
     </main>
   </body>

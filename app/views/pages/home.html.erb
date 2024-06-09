@@ -1,9 +1,9 @@
-<h1 class="text-3xl font-bold underline text-center">
+<h1 class="text-3xl font-bold underline text-center font-satoshi font-black">
     Weather APP
 </h1>
 
 
-<div class="flex justify-center" data-controller="location" data-location-key=<%= ENV["WEATHER_KEY"] %>>
+<div class="mt-5 max-w-[fit-content] mx-auto " data-controller="location" data-location-key=<%= ENV["WEATHER_KEY"] %>>
     <form class="w-full max-w-sm"  data-action="submit->location#search" >
         <div class="flex items-center border-b border-teal-500 py-2">
             <input
@@ -16,13 +16,16 @@
             </button>
         </div>
     </form>
-    <div class="flex justify-center mt-4">
+    <div class="mt-4 ">
         <div class="w-1/2" data-location-target="weather">
             <div class="flex justify-center">
                 <div class="flex flex-col items-center">
                     <h2 class="text-2xl font-bold" data-location-target="city"></h2>
                     <p class="text-lg" data-location-target="description"></p>
                     <p class="text-lg" data-location-target="temperature"></p>
+                    <p class="text-lg" data-location-target="wind"></p>
+                    <p class="text-lg" data-location-target="sunrise"></p>
+                    <p class="text-lg" data-location-target="sunset"></p>
                 </div>
             </div>
         </div>
