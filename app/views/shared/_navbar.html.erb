@@ -14,8 +14,13 @@
     <span class="text-sm font-extralight pl-1"> <%= Time.now.strftime("%p") %></span>
   </div>
   <div>
-    <form class="border-b border-gray-100 border-opacity-30">
-        <input type="text" class="border-none p-2 rounded-lg bg-transparent ring-transparent placeholder:text-gray-100 placeholder:tracking-[1px] focus:border-none focus:ring-transparent" placeholder="Search..." />
+    <form class="border-b border-gray-100 border-opacity-30" data-action="submit->location#search" data-location-target="navform">
+        <input type="text" class="border-none p-2 rounded-lg bg-transparent ring-transparent placeholder:text-gray-100 placeholder:tracking-[1px] focus:border-none focus:ring-transparent" placeholder="Search..." data-location-target="input"/>
+        <button
+                class="hidden flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+                type="submit">
+                Search
+        </button>
     </form>
   </div>
     <div>
@@ -23,6 +28,8 @@
     </div>
   </div>
 </nav>
+
+
 
 
 <%# TODO: rendre la barre de recherche dans la nav bar fonctionnelle %>
