@@ -1,20 +1,25 @@
-<div>
-    <h1 class="text-[64px] font-medium bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90" data-location-target="city"></h1>
-    <%#  %>
-    <p class="text-[56px] font-normal bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90" data-location-target="description"></p>
-    <%#  %>
-    <p class="text-3xl pl-2 font-extralight bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90" data-location-target="temperature"></p>
 
-    <p class="text-3xl font-extralight mt-6 bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90"  data-location-target="wind"></p>
+<div >
+    <div class="weather-info">
+        <h1 class="text-[64px] font-medium bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90" data-location-target="city"></h1>
+        <%#  %>
+        <p class="text-[56px] font-normal bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90" data-location-target="description"></p>
+        <%#  %>
+        <p class="text-3xl pl-2 font-extralight bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90" data-location-target="temperature"></p>
 
-    <div class="flex mt-5">
-        <p class="text-3xl font-extralight bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90"  data-location-target="sunrise"></p>
-        <p class="text-3xl font-extralight bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90"  data-location-target="sunset"></p>
+        <p class="text-3xl font-extralight mt-6 bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90"  data-location-target="wind"></p>
 
+        <div class="flex mt-5 ">
+           <p data-location-target="icon" class="hidden pr-5"> 🌅<span class="text-3xl font-extralight bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90" data-location-target="sunrise"></span></p>
+            <p data-location-target="iconset" class="hidden" > 🌇 <span class="text-3xl font-extralight bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90" data-location-target="sunset"></span></p>
+        </div>
     </div>
        
-    <div id="embed-iframe" ></div>
-<div>
+    <div class="mt-5">
+        <div id="embed-iframe" ></div>
+    </div>
+</div>
+
 
 
 <!--
@@ -48,9 +53,13 @@
     <div id="embed-iframe" ></div>
 </div>
 
--->
 
-<%# ADD spotify %>
+ -->
+
+   
+
+
+
 
 
 
