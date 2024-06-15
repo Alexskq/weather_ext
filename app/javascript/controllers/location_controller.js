@@ -13,6 +13,7 @@ export default class extends Controller {
     "navform",
     "icon",
     "iconset",
+    "glassmorph",
   ];
   // connect() {
   //   console.log("Connected!");
@@ -106,8 +107,8 @@ export default class extends Controller {
     const skyTranscription = (description) => {
       switch (description) {
         case "Clear sky":
-          // document.body.style.background =
-          //   'url("https://images.unsplash.com/photo-1541119638723-c51cbe2262aa?q=80&w=2673&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")';
+          document.body.style.background =
+            'url("https://images.unsplash.com/photo-1541119638723-c51cbe2262aa?q=80&w=2673&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")';
           spotify("sunny");
           return ` Ciel dégagé`;
         case "Few clouds":
@@ -115,12 +116,21 @@ export default class extends Controller {
           return `⛅️ Quelques nuages`;
 
         case "Overcast clouds":
+          document.body.style.background =
+            'url("https://images.unsplash.com/photo-1500740516770-92bd004b996e?q=80&w=2972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")';
+
           spotify("clouds");
           return ` ☁️ Nuages épars`;
         case "Broken clouds":
+          document.body.style.background =
+            'url("https://images.unsplash.com/photo-1500740516770-92bd004b996e?q=80&w=2972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")';
+
           spotify("clouds");
           return `☁️ Nuageux`;
         case "Scattered clouds":
+          document.body.style.background =
+            'url("https://images.unsplash.com/photo-1500740516770-92bd004b996e?q=80&w=2972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")';
+
           spotify("clouds");
           return `☁️ Nuageux`;
         case "Rain":
@@ -191,6 +201,7 @@ export default class extends Controller {
             this.sunsetTarget.innerText = `${sunsetHours}h${sunsetMinutes}`;
             this.iconTarget.classList.remove("hidden");
             this.iconsetTarget.classList.remove("hidden");
+            this.glassmorphTarget.classList.remove("hidden");
             console.log(location.href);
           });
       });
