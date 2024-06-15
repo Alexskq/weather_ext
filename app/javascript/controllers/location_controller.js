@@ -14,11 +14,13 @@ export default class extends Controller {
     "icon",
     "iconset",
     "glassmorph",
+    "sun",
+    "spotify",
   ];
-  // connect() {
-  //   console.log("Connected!");
-  //   console.log(this.navformTarget);
-  // }
+  connect() {
+    console.log("Connected!");
+    console.log(this.navformTarget);
+  }
 
   search(event) {
     event.preventDefault();
@@ -67,7 +69,7 @@ export default class extends Controller {
           )
             .then((response) => response.json())
             .then((data) => {
-              // console.log(data);
+              // console.log("couc" + data);
               window.onSpotifyIframeApiReady = (IFrameAPI) => {
                 const element = document.getElementById("embed-iframe");
                 const options = {
@@ -109,7 +111,7 @@ export default class extends Controller {
         case "Clear sky":
           document.body.style.background =
             'url("https://images.unsplash.com/photo-1541119638723-c51cbe2262aa?q=80&w=2673&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")';
-          spotify("sunny");
+          spotify("sun");
           return ` Ciel dégagé`;
         case "Few clouds":
           spotify("clouds");
@@ -118,21 +120,24 @@ export default class extends Controller {
         case "Overcast clouds":
           document.body.style.background =
             'url("https://images.unsplash.com/photo-1500740516770-92bd004b996e?q=80&w=2972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")';
-
           spotify("clouds");
           return ` ☁️ Nuages épars`;
         case "Broken clouds":
           document.body.style.background =
             'url("https://images.unsplash.com/photo-1500740516770-92bd004b996e?q=80&w=2972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")';
-
           spotify("clouds");
           return `☁️ Nuageux`;
         case "Scattered clouds":
           document.body.style.background =
             'url("https://images.unsplash.com/photo-1500740516770-92bd004b996e?q=80&w=2972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")';
-
           spotify("clouds");
           return `☁️ Nuageux`;
+        case "Moderate rain":
+          document.body.style.background =
+            'url("https://images.unsplash.com/photo-1500740516770-92bd004b996e?q=80&w=2972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")';
+          spotify("clouds");
+          return `🌦️ Pluie Modéré`;
+
         case "Rain":
           spotify("rain");
           return `🌧️Pluie`;
@@ -170,6 +175,7 @@ export default class extends Controller {
             console.log(city.sys.sunrise);
             // name + temperature
             this.cityTarget.innerText = city.name;
+            this.sunTarget.classList.remove("hidden");
             this.temperatureTarget.innerText = `${Math.round(
               city.main.temp - 273.15
             )}°C`;
@@ -203,10 +209,12 @@ export default class extends Controller {
             this.iconsetTarget.classList.remove("hidden");
             this.glassmorphTarget.classList.remove("hidden");
             console.log(location.href);
+            // console.log(this.spotifyTarget);
           });
       });
   }
   clearResults() {
+    // this.spotifyTarget.innerText = "";
     this.cityTarget.innerText = "";
     this.descriptionTarget.innerText = "";
     this.temperatureTarget.innerText = "";

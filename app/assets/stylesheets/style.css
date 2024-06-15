@@ -9,6 +9,6 @@
   padding: 20px 24px !important;
 }
 
-body {
-  background-color: gray;
-}
+/* body > #next > * {
+  background: transparent;
+} */

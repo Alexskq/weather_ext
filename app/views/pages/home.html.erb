@@ -3,9 +3,9 @@
     <div id="glassmorph" class="p-5 hidden" data-location-target="glassmorph">
         <h1 class="text-[64px] font-medium bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90" data-location-target="city"></h1>
         <%#  %>
-        <p class="text-[56px] font-normal bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90" data-location-target="description"></p>
+        <p class="text-3xl mt-6 font-normal bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90" data-location-target="description"></p>
         <%#  %>
-        <p class="text-3xl pl-2 font-extralight bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90" data-location-target="temperature"></p>
+        <p data-location-target="sun" class="hidden pr-5 mt-6"> 🌡️<span class="text-3xl pl-2 font-extralight bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90" data-location-target="temperature"></span></p>
 
         <p class="text-3xl font-extralight mt-6 bg-gradient-to-r from-slate-200 via-gray-200 to-slate-50 bg-clip-text text-transparent opacity-90"  data-location-target="wind"></p>
 
@@ -15,8 +15,8 @@
         </div>
     </div>
        
-    <div class="mt-5">
-        <div id="embed-iframe" ></div>
+    <div data-location-target="spotify">
+        <div id="embed-iframe" style="background:'transparent'" ></div>
     </div>
 </div>
 
