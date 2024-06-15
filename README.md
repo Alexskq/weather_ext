@@ -1,24 +1,22 @@
-# README
+# WeatherSpot
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+WeatherSpot is a RoR app that retrieves the current weather for a given location and provides a music playlist adapted to the weather conditions.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+- ☀️ Retrieve current weather from a weather API.
+- 🎧 Generate a music playlist based on weather conditions (sunny, rainy, cloudy, etc.).
+- Simple and intuitive user interface.
 
-* System dependencies
+## 🔧 Stack
 
-* Configuration
+- Rails 7
+- API weather service (OpenWeatherMap)
+- API music service (Spotify)
 
-* Database creation
+------------
 
-* Database initialization
+## 🚧 Improvements
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Need to improve UI design
+- Somtimes there is a bug with rails asset 🧐
